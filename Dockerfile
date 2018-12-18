@@ -11,5 +11,6 @@ RUN go install ./...
 FROM alpine
 RUN mkdir -p /opt/
 COPY --from=build /go/bin/echoip /opt/
+COPY /go/src/github.com/mpolden/echoip/index.html /opt
 WORKDIR /opt/
 ENTRYPOINT ["/opt/echoip"]
