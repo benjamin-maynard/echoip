@@ -13,4 +13,4 @@ RUN mkdir -p /opt/
 COPY --from=build /go/bin/echoip /opt/
 COPY index.html /opt
 WORKDIR /opt/
-ENTRYPOINT ["/opt/echoip"]
+ENTRYPOINT ["/opt/echoip", "--trusted-header=X-Forwarded-For"]
